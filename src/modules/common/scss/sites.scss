@@ -1,0 +1,33 @@
+.site-list{
+  background:#D6D6D6;
+  flex:2;
+  min-width:200px;
+  max-width:240px;
+  ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+  }
+
+  .site-element{
+    padding:10px;
+
+    span.name{
+
+      &::after{
+        content:' @ ';
+      }
+    }
+
+    span.url{
+
+    }
+
+    div.healthbar{
+      background:#00FF1A;
+      min-height:10px;
+      width:90%;
+      margin:10px auto;
+    }
+  }
+}

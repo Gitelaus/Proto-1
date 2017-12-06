@@ -1,0 +1,30 @@
+.section-home{
+  background: #F1F1F1;
+  ul.list-updates{
+    padding:20px;
+
+    list-style: none;
+
+    //background:rgb(100, 100, 100);
+
+    li{
+      box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+      margin:20px auto;
+      width:70%;
+
+      .title{
+
+        i{
+          float:right;
+          width:60px;
+          font-weight:600;
+        }
+
+        &.alert{
+          padding:10px 5px;
+          background:#00c853;
+        }
+      }
+    }
+  }
+}

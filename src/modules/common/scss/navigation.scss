@@ -1,0 +1,23 @@
+#navigation{
+  background:black;
+  color:white;
+  max-width:50px;
+  flex:1;
+
+  ul{
+    padding:0;
+    margin:0;
+    list-style: none;
+    text-align: center;
+
+    li{
+      background:white;
+      display:block;
+      width:40px;
+      height:30px;
+      padding:5px;
+      line-height:30px;
+      border-bottom:5px solid green;
+    }
+  }
+}
