@@ -23,10 +23,15 @@ export default class Navigation extends React.Component {
                 <ul className="list-updates">
                     <li>
                         <div className="title alert">
-                            <span>Something happened, this is a short summary</span>
-                            <i>
-                                |||||||||
-                            </i>
+                            <span>%site.name% is reported to be operational once again</span>
+                            <div className="hamburger">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div className="content">
+
                         </div>
                     </li>
                 </ul>

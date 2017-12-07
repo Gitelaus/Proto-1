@@ -8,21 +8,25 @@
     //background:rgb(100, 100, 100);
 
     li{
+      border-radius:2px;
+      overflow: hidden;
       box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
       margin:20px auto;
       width:70%;
 
-      .title{
 
-        i{
-          float:right;
-          width:60px;
-          font-weight:600;
-        }
+      .title{
 
         &.alert{
           padding:10px 5px;
           background:#00c853;
+          font-weight:700;
+          text-transform: uppercase;
+        }
+
+        .hamburger{
+          float:right;
+          @include hamburger();
         }
       }
     }

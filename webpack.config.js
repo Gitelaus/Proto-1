@@ -1,5 +1,5 @@
-var nodeExternals = require('webpack-node-externals');
 const path = require('path');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -22,22 +22,42 @@ module.exports = {
         path: path.resolve('dist'),
         filename: 'index_bundle.js'
     },
+    devtool: "source-map",
     module: {
-        loaders: [
+        rules: [
             {
-                test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/,
-                query: {
+                test: /\.jsx?$/,
+                exclude:/node_modules/,
+                query:{
                     presets: ['react', 'es2015']
-                }},
-            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/,
-                query: {
-                    presets: ['react', 'es2015']
-                }},
+                },
+                loader: 'babel-loader'
+            },
             {
                 test: /\.scss$/,
-                loaders: ['style-loader', 'css-loader', 'sass-loader']
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            minimize: true
+                        }
+                    }, {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },{
+                        loader: 'sass-resources-loader',
+                        options: {
+                            resources: './src/modules/common/common.scss',
+                        }
+                    }]
+                })
             }
-            ]
+        ]
     },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
@@ -47,5 +67,7 @@ module.exports = {
             poll: 2500
         }
     },
-    plugins:[HtmlWebpackPluginConfig]
+    plugins:[HtmlWebpackPluginConfig,
+        new ExtractTextPlugin({filename:"styles.css",
+            allChunks: true})]
 }

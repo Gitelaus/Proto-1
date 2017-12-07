@@ -1,0 +1,39 @@
+@mixin hamburger{
+  position: relative;
+  width:30px;
+  height:18px;
+
+  div{
+    height:2px;
+    background:black;
+  }
+
+  :nth-child(1){
+    position: relative;
+    top:0px;
+  }
+
+  :nth-child(2){
+    position: relative;
+    top:7px;
+  }
+
+  :nth-child(3){
+    position: relative;
+    top:14px;
+  }
+
+  &:hover{
+    :nth-child(1){
+      top:10px;
+      transform: rotate(45deg);
+      transition: 0.5s ease-in-out;
+    }
+
+    :nth-child(3){
+      top:10px;
+      transform: rotate(-45deg);
+      transition: 0.5s ease-in-out;
+    }
+  }
+}
